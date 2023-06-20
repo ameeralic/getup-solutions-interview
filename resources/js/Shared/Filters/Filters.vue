@@ -1,32 +1,15 @@
 <template>
-  <div
-    class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4"
-  >
-    <SearchBar
-      v-model="search"
-      v-if="enableFilters.search"
-      :searchPlaceHolderText="searchPlaceHolder"
-    ></SearchBar>
+  <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
+    <SearchBar v-model="search" v-if="enableFilters.search" :searchPlaceHolderText="searchPlaceHolder"></SearchBar>
 
-    <DaterangePicker
-      v-if="enableFilters.dateRange"
-      :dateStart="dateStart"
-      :dateEnd="dateEnd"
-      @dateChanged="dateRangePick"
-    ></DaterangePicker>
+    <DaterangePicker v-if="enableFilters.dateRange" :dateStart="dateStart" :dateEnd="dateEnd"
+      @dateChanged="dateRangePick"></DaterangePicker>
 
-    <SortDropdown
-      v-model="sortBy"
-      v-if="enableFilters.sortBy"
-      :sortByFilters="sortByFilters"
-    ></SortDropdown>
+    <SortDropdown v-model="sortBy" v-if="enableFilters.sortBy" :sortByFilters="sortByFilters"></SortDropdown>
 
-    <FilterDropdown
-      :filters="filters"
-      @filterByFilterChangeEmit="filterByFilterChange"
-      v-if="enableFilters.filterByFiltersEnabled"
-      :filterByFiltersEnabled="enableFilters.filterByFiltersEnabled"
-    ></FilterDropdown>
+    <FilterDropdown :filters="filters" @filterByFilterChangeEmit="filterByFilterChange"
+      v-if="enableFilters.filterByFiltersEnabled" :filterByFiltersEnabled="enableFilters.filterByFiltersEnabled">
+    </FilterDropdown>
   </div>
 </template>
 
@@ -102,7 +85,7 @@ export default {
         this.filterQueries.page = this.currentPage;
       }
       Object.assign(this.filterQueries, this.filterByFilter);
-
+      console.log(`${this.url}/${this.dataName}`);
       router.get(`${this.url}/${this.dataName}`, this.filterQueries, {
         preserveState: true,
         replace: true,

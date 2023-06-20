@@ -1,30 +1,28 @@
 <template>
-    <div class="bg-zinc-600 min-h-48 z-50">
-        <div class="md:max-w-6xl py-10 mx-auto flex justify-between px-2 items-center">
-            <div>
-                <img src="https://laravuetail.com/images/laravuetail-logo.png" alt="" class="h-10 w-10">
-                <p class="text-sm text-gray-100 font-poppins">
-                    2023 &#169; <span class="text-[#ff2d20]">Lara</span
-                    ><span class="text-[#41b883]">Vue</span
-                    ><span class="text-[#38bdf8]">Tail</span>
-                </p>
-                <p class="text-xs text-gray-100 font-poppins font-thin">
-                    open source MIT license
-                </p>
-            </div>
-            <div>
-                <div
-                    class="text-gray-100 font-poppins text-sm cursor-pointer hover:text-white space-x-3 grid justify-items-end md:justify-items-start md:grid-cols-3"
-                >
-                    <a href="https://laravuetail.com" class="hover:underline">Projects</a>
-                    <a href="https://laravuetail.com/about" class="hover:underline">About</a>
-                    <a href="https://github.com/LaraVueTail" class="hover:underline"
-                        >Github
-                        <i class="fa-brands ml-1 fa-github text-white"></i
-                    ></a>
-                </div>
-            </div>
+    <footer class="p-4 bg-gray-100 md:p-8 lg:p-10 dark:bg-gray-800">
+        <div class="mx-auto max-w-screen-xl text-center">
+            <Link href="/" class="flex justify-center items-center text-2xl font-semibold text-gray-900 dark:text-white">
+            <img :src="$page.props.app_url + 'logo/blog-logo.svg'" class="mr-2 h-10 sm:h-10" alt="Logo" />
+            LVTBlog
+            </Link>
+            <p class="my-6 text-gray-500 dark:text-gray-400">
+                Welcome to LVTBlog!
+            </p>
+            <!-- <ul class="flex flex-wrap justify-center items-center mb-6 text-gray-900 dark:text-white">
+                <li>
+                    <Link href="/courses" class="mr-4 hover:underline md:mr-6">Courses</Link>
+                </li>
+                <li>
+                    <Link href="/about" class="mr-4 hover:underline md:mr-6">About</Link>
+                </li>
+                <li>
+                    <Link href="/contact" class="mr-4 hover:underline md:mr-6">Contact</Link>
+                </li>
+            </ul> -->
+            <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2021-2022 <a href="#"
+                    class="hover:underline">LVTBlog™</a>.
+                All Rights Reserved.</span>
         </div>
-    </div>
+    </footer>
 </template>
 <script></script>
