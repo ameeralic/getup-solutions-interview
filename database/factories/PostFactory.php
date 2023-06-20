@@ -18,20 +18,14 @@ class PostFactory extends Factory
     public function definition(): array
     {
         return [
-            'heading'=> $this->faker->sentence(),
-            'sub_heading'=> $this->faker->sentence(),
+            'heading' => $this->faker->sentence(),
+            'sub_heading' => $this->faker->sentence(),
             'slug' => $this->faker->unique()->slug(),
-            'thumbnail' => $this->faker->randomElement(
-                [
-                'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
-                'https://tailwindui.com/img/ecommerce-images/product-page-02-featured-product-shot.jpg',
-                'https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-02.jpg',
-                'https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-01.jpg'
-            ]),
-            'category_id'=>Category::factory(),
-            'keywords'=>$this->faker->word(),
-            'text_content'=>'<p>' . implode('</p><p>', $this->faker->paragraphs(6)) . '</p>',
-            'status'=>$this->faker->randomElement(['published', 'draft']),
+            'thumbnail' => fake()->randomElement(['https://images.pexels.com/photos/5412436/pexels-photo-5412436.jpeg', 'https://images.pexels.com/photos/1366944/pexels-photo-1366944.jpeg', 'https://images.pexels.com/photos/1771338/pexels-photo-1771338.jpeg']),
+            'category_id' => Category::factory(),
+            'keywords' => $this->faker->word(),
+            'text_content' => '<p>' . implode('</p><p>', $this->faker->paragraphs(6)) . '</p>',
+            'status' => $this->faker->randomElement(['published', 'draft']),
 
         ];
     }
