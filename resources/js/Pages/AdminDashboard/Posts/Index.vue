@@ -1,5 +1,5 @@
 <template>
-    <h2>Posts</h2>
+    <h2>Articles</h2>
     <DeleteAlert
                 v-if="deleteAlertPost"
                 @close="deleteAlertPost = false"
@@ -10,7 +10,7 @@
         class="bg-white dark:bg-gray-800 relative shadow-md rounded-lg border-2 border-gray-200 max-w-5xl my-4"
     >
         <Filters
-            :searchPlaceHolder="'Search by Post ID, Heading, Sub Heading..'"
+            :searchPlaceHolder="'Search by Article ID, Heading, Sub Heading..'"
             :filters="filters"
             :currentPage="posts.current_page"
             :dataName="'posts'"
@@ -19,16 +19,16 @@
                 search: true,
                 dateRange: true,
                 sortBy: true,
-                filterByFiltersEnabled: [
-                    {
-                        name: 'status',
-                        slug: 'status',
-                        options: [
-                            { name: 'Published', value: 'published' },
-                            { name: 'Draft', value: 'draft' },
-                        ],
-                    },
-                ],
+                // filterByFiltersEnabled: [
+                //     {
+                //         name: 'status',
+                //         slug: 'status',
+                //         options: [
+                //             { name: 'Published', value: 'published' },
+                //             { name: 'Draft', value: 'draft' },
+                //         ],
+                //     },
+                // ],
             }"
         ></Filters>
         <Table
@@ -39,7 +39,7 @@
                 { heading: 'Title', type: 'text', value: 'heading' },
                 { heading: 'Category', type: 'text', value: 'category_id' },
             ]"
-            :actionLinks="[{ link: 'admin-dashboard/posts', name: 'Edit' }]"
+            :actionLinks="[{ link: 'admin-dashboard/articles', name: 'Edit' }]"
             :deleteEnable="true"
             @deleteItem="deletePost"
         ></Table>
@@ -63,12 +63,12 @@ export default {
             window.scrollTo(0, 0);
             this.deleteAlertPost = true;
             this.deletePostId = postId
-            this.deleteAlertPostText = `Deleting the post will permanently removed from the database. You can't recover the
-        post again. Are you sure about deleting?`;
+            this.deleteAlertPostText = `Deleting the article will permanently removed from the database. You can't recover the
+        article again. Are you sure about deleting?`;
             setTimeout(() => (this.deleteAlertPost = false), 5000);
         },
         deletePostConfirm() {
-            router.delete(`/admin-dashboard/posts/${this.deletePostId}`);
+            router.delete(`/admin-dashboard/articles/${this.deletePostId}`);
             this.deleteAlertPost = false;
 
         },

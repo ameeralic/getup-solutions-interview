@@ -1,7 +1,7 @@
 <template>
     <Notification></Notification>
-    <Navbar :siteLogo="$page.props.app_url + 'logo/blog-logo.svg'" :siteName="'LVTBlog'"
-        :userAvatar="$page.props.app_url + 'logo/blog-logo.svg'" :userName="$page.props.admin.name"
+    <Navbar  :siteName="'Getup Solutions'"
+         :userName="$page.props.admin.name"
         :userEmail="$page.props.admin.email" :navMenu="navMenu"></Navbar>
     <Sidebar :sidebarMenu="sidebarMenu"></Sidebar>
     <div class="md:px-4 py-4 sm:ml-64">
@@ -33,11 +33,6 @@ export default {
                     method: 'get',
                 },
                 {
-                    name: 'Settings',
-                    link: '/admin-dashboard/settings',
-                    method: 'get',
-                },
-                {
                     name: 'Sign out',
                     link: '/logout',
                     method: 'post',
@@ -51,18 +46,18 @@ export default {
                     icon: ChartPieIcon,
                 },
                 {
-                    name: 'Posts',
-                    link: '/admin-dashboard/posts',
+                    name: 'Articles',
+                    link: '/admin-dashboard/articles',
                     method: 'get',
                     icon: DocumentTextIcon,
                     subMenu: [
                         {
                             name: 'Create',
-                            link: '/admin-dashboard/posts/create',
+                            link: '/admin-dashboard/articles/create',
                         },
                         {
-                            name: 'All Posts',
-                            link: '/admin-dashboard/posts',
+                            name: 'All Articles',
+                            link: '/admin-dashboard/articles',
                         }
                     ]
                 },

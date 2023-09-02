@@ -15,7 +15,7 @@
                 <div
                     class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600"
                 >
-                    <h2>Create New Post</h2>
+                    <h2>Create New Article</h2>
                     <button
                         type="button"
                         class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
@@ -42,7 +42,7 @@
                     <div class="grid md:grid-cols-2 gap-6">
                         <div>
                             <FormSimpleInput
-                                :label="'Post Title'"
+                                :label="'Title'"
                                 :name="'post_heading'"
                                 @change="changeNameToSlug()"
                                 :type="'text'"
@@ -51,7 +51,7 @@
                             >
                             </FormSimpleInput>
                             <FormSimpleInput
-                                :label="'Post Slug'"
+                                :label="'Slug'"
                                 :name="'post_slug'"
                                 :type="'text'"
                                 v-model="postInfo.slug"
@@ -60,7 +60,7 @@
                             >
                             </FormSimpleInput>
                             <FormSelect
-                                :label="'Post Category'"
+                                :label="'Category'"
                                 :name="'category_id'"
                                 :selected="postInfo.category_id ?? 1"
                                 v-model="postInfo.category_id"
@@ -71,7 +71,7 @@
                             >
                             </FormSelect>
                             <FormSimpleInput
-                                :label="'Post Sub Heading'"
+                                :label="'Sub Heading'"
                                 :name="'post_sub_heading'"
                                 :type="'text'"
                                 v-model="postInfo.sub_heading"
@@ -88,20 +88,20 @@
                         <div>
                             <FormFileUploadSingle
                                 @fileChange="(file) => (thumbnail = file[0])"
-                                :label="'Post Thumbnail'"
+                                :label="'Thumbnail'"
                                 :oldImageLink="oldThumbnail"
                                 :name="'post_thumbnail'"
                                 :error="$page.props.errors.thumbnail ?? ''"
                             ></FormFileUploadSingle>
                             <FormSimpleInput
-                                :label="'Post Keywords'"
+                                :label="'Keywords'"
                                 :name="'post_keywords'"
                                 :type="'text'"
                                 v-model="postInfo.keywords"
                                 :error="$page.props.errors.keywords ?? ''"
                             ></FormSimpleInput>
                             <FormSelect
-                                :label="'Post Status'"
+                                :label="'Status'"
                                 :name="'post_status'"
                                 :selected="postInfo.status ?? 'Published'"
                                 v-model="postInfo.status"
@@ -121,7 +121,7 @@
                 >
                     <Button
                         @click.prevent="createPost()"
-                        :text="'Create Post'"
+                        :text="'Create Article'"
                         :color="'blue'"
                     ></Button>
                 </div>
@@ -175,7 +175,7 @@ export default {
             } else {
                 delete this.postInfo.thumbnail;
             }
-            router.post("/admin-dashboard/posts", this.postInfo, {
+            router.post("/admin-dashboard/articles", this.postInfo, {
                 preserveState: true,
                 preserveScroll: true,
                 only: ["flash","errors"],

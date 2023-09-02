@@ -21,7 +21,7 @@
                 <div
                     class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600"
                 >
-                    <h2>Edit Post</h2>
+                    <h2>Edit Article</h2>
                     <button
                         type="button"
                         class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
@@ -48,7 +48,7 @@
                     <div class="grid md:grid-cols-2 gap-6">
                         <div>
                             <FormSimpleInput
-                                :label="'Post Title'"
+                                :label="'Title'"
                                 :name="'post_heading'"
                                 @change="changeNameToSlug()"
                                 :type="'text'"
@@ -57,7 +57,7 @@
                             >
                             </FormSimpleInput>
                             <FormSimpleInput
-                                :label="'Post Slug'"
+                                :label="'Slug'"
                                 :name="'post_slug'"
                                 :type="'text'"
                                 v-model="postInfo.slug"
@@ -66,7 +66,7 @@
                             >
                             </FormSimpleInput>
                             <FormSelect
-                                :label="'Post Category'"
+                                :label="'Category'"
                                 :name="'category_id'"
                                 :selected="postInfo.category_id ?? 1"
                                 v-model="postInfo.category_id"
@@ -77,7 +77,7 @@
                             >
                             </FormSelect>
                             <FormSimpleInput
-                                :label="'Post Sub Heading'"
+                                :label="'Sub Heading'"
                                 :name="'post_sub_heading'"
                                 :type="'text'"
                                 v-model="postInfo.sub_heading"
@@ -94,20 +94,20 @@
                         <div>
                             <FormFileUploadSingle
                                 @fileChange="(file) => (thumbnail = file[0])"
-                                :label="'Post Thumbnail'"
+                                :label="'Thumbnail'"
                                 :oldImageLink="oldThumbnail"
                                 :name="'post_thumbnail'"
                                 :error="$page.props.errors.thumbnail ?? ''"
                             ></FormFileUploadSingle>
                             <FormSimpleInput
-                                :label="'Post Keywords'"
+                                :label="'Keywords'"
                                 :name="'post_keywords'"
                                 :type="'text'"
                                 v-model="postInfo.keywords"
                                 :error="$page.props.errors.keywords ?? ''"
                             ></FormSimpleInput>
                             <FormSelect
-                                :label="'Post Status'"
+                                :label="'Status'"
                                 :name="'post_status'"
                                 :selected="postInfo.status ?? 'Published'"
                                 v-model="postInfo.status"
@@ -127,12 +127,12 @@
                 >
                     <Button
                         @click.prevent="editPost()"
-                        :text="'Edit Post'"
+                        :text="'Edit Article'"
                         :color="'blue'"
                     ></Button>
                     <Button
                         @click.prevent="deletePost()"
-                        :text="'Delete Post'"
+                        :text="'Delete Article'"
                         :color="'red'"
                     ></Button>
                 </div>
@@ -186,12 +186,12 @@ export default {
         deletePost() {
             window.scrollTo(0, 0);
             this.deleteAlertPost = true;
-            this.deleteAlertPostText = `Deleting the post will permanently removed from the database. You can't recover the
-        post again. Are you sure about deleting?`;
+            this.deleteAlertPostText = `Deleting the article will permanently removed from the database. You can't recover the
+        article again. Are you sure about deleting?`;
             setTimeout(() => (this.deleteAlertPost = false), 5000);
         },
         deletePostConfirm() {
-            router.delete(`/admin-dashboard/posts/${this.post.id}`);
+            router.delete(`/admin-dashboard/articles/${this.post.id}`);
         },
         editPost() {
             if (this.thumbnail) {
@@ -202,7 +202,7 @@ export default {
             }
             this.postInfo._method = "put";
             router.post(
-                `/admin-dashboard/posts/${this.post.id}`,
+                `/admin-dashboard/articles/${this.post.id}`,
                 this.postInfo,
                 {
                     preserveState: false,

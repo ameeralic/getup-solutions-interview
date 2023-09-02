@@ -10,7 +10,7 @@
                 </p>
             </div>
             <div class="mb-6">
-                <Filters :searchPlaceHolder="'Search by Post ID, Name, short-description ..'" :filters="$page.props.filters"
+                <Filters :searchPlaceHolder="'Search by Article ID, Name, short-description ..'" :filters="$page.props.filters"
                     :currentPage="posts.current_page" :dataName="''" :sendToUrl="''" :sortByFilters="{ dateSort: true }"
                     :enableFilters="{
                         search: true,
@@ -51,11 +51,11 @@ import PageNavigation from "../../../Shared/PageNavigation.vue";
 import Grid from "../../../Shared/Post/Grid.vue";
 import Filters from "../../../Shared/Filters/Filters.vue";
 
-import { onMounted } from "vue";
-import { initFlowbite } from "flowbite";
+// import { onMounted } from "vue";
+// import { initFlowbite } from "flowbite";
 
-// initialize components based on data attribute selectors
-onMounted(() => {
-    initFlowbite();
-});
+// // initialize components based on data attribute selectors
+// onMounted(() => {
+//     initFlowbite();
+// });
 </script>

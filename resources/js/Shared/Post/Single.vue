@@ -21,8 +21,8 @@ URL: https://flowbite.com/docs/components/typography/
                 <header class="my-6 lg:mb-6 not-format">
                     <address class="flex items-center mb-6 not-italic">
                         <div class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
-                            <img class="mr-4 w-10 h-10 rounded-full" :src="$page.props.app_url + 'logo/blog-logo.svg'"
-                                alt="Jese Leos" />
+                            <!-- <img class="mr-4 w-10 h-10 rounded-full" :src="$page.props.app_url + 'logo/blog-logo.svg'"
+                                alt="Jese Leos" /> -->
                             <div>
                                 <a href="#" rel="author" class="text-sm font-bold text-gray-900 dark:text-white">{{
                                     $page.props.admin.name }}</a>

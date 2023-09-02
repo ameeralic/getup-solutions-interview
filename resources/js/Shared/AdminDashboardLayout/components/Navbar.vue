@@ -15,7 +15,7 @@
             </svg>
           </button>
           <Link href="/" class="flex ml-2 md:mr-24">
-            <img :src="siteLogo" class="h-8 mr-3" alt="FlowBite Logo" />
+            <!-- <img :src="siteLogo" class="h-8 mr-3" alt="FlowBite Logo" /> -->
             <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">{{ siteName }}</span>
           </Link>
         </div>
@@ -53,7 +53,7 @@
 </template>
 <script>
 export default {
-    props:['siteLogo','siteName','userAvatar','userName','userEmail','navMenu']
+    props:['siteName','userName','userEmail','navMenu']
 }
 </script>
 <script setup>

@@ -45,12 +45,13 @@ class PostController extends Controller
             );
         }
         Post::create($attributes);
-        return redirect('/admin-dashboard')->with('success','Post Created!');
+        return redirect('/admin-dashboard/articles')->with('success','Article Created!');
 
     }
 
     public function edit(Post $post)
     {
+        // dd($post);
         return Inertia::render('AdminDashboard/Posts/Edit', [
             'post' => $post,
             'categories' => Category::all()
@@ -86,7 +87,7 @@ class PostController extends Controller
 
         $post->update($attributes);
 
-        return back()->with('success', 'Post Updated!');
+        return back()->with('success', 'Article Updated!');
     }
 
     public function destroy(Post $post)
@@ -94,7 +95,7 @@ class PostController extends Controller
         $post->delete();
         Storage::deleteDirectory('images/posts/'.$post['slug']);
 
-        return redirect('/admin-dashboard/posts')->with('Success', 'User Deleted!');
+        return redirect('/admin-dashboard/articles')->with('Success', 'Article Deleted!');
     }
 
     public function validatePost(?Post $post = null):array

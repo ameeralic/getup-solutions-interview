@@ -12,10 +12,11 @@
           'cursor-not-allowed': disabled,
         }"
         type="checkbox"
-        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-500 border-2 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
       />
       <label
         :for="name"
+        id="remember-me"
         class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
         >{{ label }}</label
       >
@@ -29,3 +30,15 @@ export default {
   emits: ["update:modelValue"],
 };
 </script>
+<style>
+#remember-me{
+  color: #5F5F5F;
+  font-family: 'Mulish', sans-serif;
+font-size: 14px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+letter-spacing: 0.3px;
+text-transform: uppercase;
+}
+</style>

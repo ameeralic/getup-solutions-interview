@@ -15,7 +15,7 @@
                 Date(post.created_at)).getDate() +
                 ' ' + months[(new Date(post.created_at)).getMonth()] }}</span>
         </div>
-        <Link :href="`/posts/${post.slug}`">
+        <Link :href="`/articles/${post.slug}`">
         <img :src="post.thumbnail_url" alt="" class=" h-64 w-full object-cover rounded-md mb-2" />
 
         </Link>
@@ -24,13 +24,13 @@
         <p class="mb-5 font-light text-gray-500 dark:text-gray-400 line-clamp-3" v-html="post.text_content"></p>
         <div class="flex justify-between items-center">
             <div class="flex items-center space-x-4">
-                <img class="w-7 h-7 rounded-full" :src="$page.props.app_url + 'logo/blog-logo.svg'"
-                    alt="Jese Leos avatar" />
+                <!-- <img class="w-7 h-7 rounded-full" :src="$page.props.app_url + 'logo/blog-logo.svg'"
+                    alt="Jese Leos avatar" /> -->
                 <span class="font-medium dark:text-white">
                     {{ $page.props.admin.name }}
                 </span>
             </div>
-            <Link :href="`/posts/${post.slug}`"
+            <Link :href="`/articles/${post.slug}`"
                 class="inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline">
             Read more
             <svg class="ml-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">

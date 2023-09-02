@@ -95,13 +95,13 @@ export default {
 };
 </script>
 <script setup>
-import { onMounted } from "vue";
-import { initFlowbite } from "flowbite";
+// import { onMounted } from "vue";
+// import { initFlowbite } from "flowbite";
 import SearchBar from "../../Shared/Filters/SearchBar.vue";
 import DaterangePicker from "../../Shared/Filters/DaterangePicker.vue";
 import SortDropdown from "../../Shared/Filters/SortDropdown.vue";
 import FilterDropdown from "../../Shared/Filters/FilterDropdown.vue";
-onMounted(() => {
-  initFlowbite();
-});
+// onMounted(() => {
+//   initFlowbite();
+// });
 </script>
